@@ -1,0 +1,21 @@
+<html>
+<body>
+<p id = "demo"></p>
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "https://api.openweathermap.org/data/2.5/weather?id=1264527&APPID=b48e7cc7443e3f275cde3b0a3aa8c310"
+xmlhttp.onreadystatechange = function(){
+  if (this.readyState == 4 && this.status == 200){
+    var myobj = JSON.parse(this.responseText);
+    txt += "<table border = '1'>";
+    for (x in myObj){
+      txt += "<tr><td>" + myobj[x].main.temp + "</td></tr>";
+    txt += "</table>";
+    document.getElementByID("demo").innerHTML = txt;
+  }
+};
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+</script>
+</body>
+</html>
