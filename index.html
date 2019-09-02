@@ -1,8 +1,25 @@
 <html>
 <body>
 <p id = "demo"></p>
-<script>
-var xmlhttp = new XMLHttpRequest();
+<script lang="text/javascript">
+    function weatherBalloon( cityID ) {
+      var key = 'b48e7cc7443e3f275cde3b0a3aa8c310';
+      fetch('https://api.openweathermap.org/data/2.5/weather?id=' +cityID+ '&appid=' + key)  
+      .then(function(resp) { return resp.json() }) // Convert data to json
+      .then(function(data) { drawWeather(data); })
+      .catch(function() {});
+    }
+  function drawWeather( d ) {
+	  var celcius = Math.round(parseFloat(d.main.temp)-273.15); 
+    document.getElementById("demo").innerHTML=d.name+" "+celcius+"&deg"+"<br>";
+}
+window.onload = function() {
+weatherBalloon(1264527);
+weatherBalloon(1269843);
+ 
+  
+}
+/*var xmlhttp = new XMLHttpRequest();
 var url = "https://api.openweathermap.org/data/2.5/weather?id=1264527&APPID=b48e7cc7443e3f275cde3b0a3aa8c310"
 xmlhttp.onreadystatechange = function(){
   if (this.readyState == 4 && this.status == 200){
@@ -15,7 +32,14 @@ xmlhttp.onreadystatechange = function(){
   }
 };
 xmlhttp.open("GET",url,true);
-xmlhttp.send();
+xmlhttp.send();*/
+  
 </script>
 </body>
 </html>
+<!--<table id="weathertable" border=1></table>
+  <p id="demo"></p>
+  <script 
+  </script>
+</body>
+</html>-->
