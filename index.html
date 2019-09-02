@@ -35,10 +35,13 @@ h1 {
 	  cell1.innerHTML = d.name;
 	  cell2.innerHTML = celsius;
     //document.getElementById("demo").innerHTML=d.name+" "+celcius+"&deg"+"<br>";
-}
+	}
+  function heading() {
+	  txt = "<tr><th>City name</th><th>Temperature (in &degCelsius)</th></tr>";
+          document.getElementById("Table").innerHTML=txt;
+  }	  
 window.onload = function() {
-txt = "<tr><th>'City name'</th><th>'Temperature (in &degCelsius)'</th></tr>";
-document.getElementById("Table").innerHTML=txt;
+heading();
 weatherBalloon(1264527);
 weatherBalloon(1269843);
  
