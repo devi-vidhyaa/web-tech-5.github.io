@@ -17,10 +17,6 @@ h1 {
 <body>
 <h1>Weather Table</h1><br><br>
 <table id="Table" border=1>
-	<th>
-	<td>"City name"</td>
-	<td>"Temperature (in &degCelsius)"</td>
-	</th>
 </table>
 <script lang="text/javascript">
     function weatherBalloon( cityID ) {
@@ -41,6 +37,8 @@ h1 {
     //document.getElementById("demo").innerHTML=d.name+" "+celcius+"&deg"+"<br>";
 }
 window.onload = function() {
+txt = "<tr><th>'City name'</th><th>'Temperature (in &degCelsius)'</th></tr>";
+document.getElementById("Table").innerHTML=txt;
 weatherBalloon(1264527);
 weatherBalloon(1269843);
  
