@@ -1,6 +1,27 @@
 <html>
+<head>
+<style>
+table {
+	align: center;
+	border-collapse: collapse;
+}
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+	color: blue;
+	text-decoration: underline;
+	Text-align: center;
+}
+</style>
+</head>
 <body>
-<table id="myTable" border=1></table>
+<h1>Weather Table</h1><br><br>
+<table id="Table" border=1>
+	<th>
+	<td>"City name"</td>
+	<td>"Temperature (in &degCelsius)"</td>
+	</th>
+</table>
 <script lang="text/javascript">
     function weatherBalloon( cityID ) {
       var key = 'b48e7cc7443e3f275cde3b0a3aa8c310';
@@ -10,13 +31,13 @@
       .catch(function() {});
     }
   function drawWeather( d ) {
-	  var celcius = Math.round(parseFloat(d.main.temp)-273.15);
-	  var table = document.getElementById("myTable");
+	  var celsius = Math.round(parseFloat(d.main.temp)-273.15);
+	  var table = document.getElementById("Table");
 	  var row = table.insertRow(0);
 	  var cell1 = row.insertCell(0);
 	  var cell2 = row.insertCell(1);
 	  cell1.innerHTML = d.name;
-	  cell2.innerHTML = celcius;
+	  cell2.innerHTML = celsius;
     //document.getElementById("demo").innerHTML=d.name+" "+celcius+"&deg"+"<br>";
 }
 window.onload = function() {
